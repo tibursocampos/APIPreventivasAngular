@@ -1,3 +1,6 @@
+import { SitesComponent } from './sites/sites.component';
+import { EditarSitesComponent } from './editar-sites/editar-sites.component';
+import { CriarSitesComponent } from './criar-sites/criar-sites.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { LoginComponent } from './login/login.component';
 import { EditarUsuariosComponent } from './editar-usuarios/editar-usuarios.component';
@@ -11,11 +14,21 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  {
-    path: 'cronograma-criar',
-    component: CriarCronogramasComponent,
-    data: { title: 'Criar Cronograma' }
+  {    
+  path:'',
+  redirectTo: 'dashboard', 
+  pathMatch: 'full',    
   },
+  {
+  path: 'cronograma-criar',
+  component: CriarCronogramasComponent,
+  data: { title: 'Criar Cronograma' }
+  },
+  {
+    path: 'sites-criar',
+    component: CriarSitesComponent,
+    data: { title: 'Criar Site' }
+    },
   {
     path: 'usuario-criar',
     component: CriarUsuariosComponent,
@@ -42,6 +55,11 @@ const routes: Routes = [
     data: { title: 'Editar Cronograma' }
   },
   {
+    path: 'site-editar/:id',
+    component: EditarSitesComponent,
+    data: { title: 'Editar Site' }
+  },
+  {
     path: 'usuario-editar/:id',
     component: EditarUsuariosComponent,
     data: { title: 'Editar Usuario' }
@@ -50,6 +68,11 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent,
     data: { title: 'Login' }
+  },
+  {
+    path: 'sites',
+    component: SitesComponent,
+    data: { title: 'Sites' }
   },
   {
     path: 'usuarios',

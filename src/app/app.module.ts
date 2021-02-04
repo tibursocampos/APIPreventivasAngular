@@ -12,6 +12,11 @@ import { CronogramasComponent } from './cronogramas/cronogramas.component';
 import { CriarCronogramasComponent } from './criar-cronogramas/criar-cronogramas.component';
 import { EditarCronogramasComponent } from './editar-cronogramas/editar-cronogramas.component';
 import { EditarUsuariosComponent } from './editar-usuarios/editar-usuarios.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SitesComponent } from './sites/sites.component';
+import { CriarSitesComponent } from './criar-sites/criar-sites.component';
+import { EditarSitesComponent } from './editar-sites/editar-sites.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +29,11 @@ import { EditarUsuariosComponent } from './editar-usuarios/editar-usuarios.compo
     CronogramasComponent,
     CriarCronogramasComponent,
     EditarCronogramasComponent,
-    EditarUsuariosComponent
+    EditarUsuariosComponent,
+    NavbarComponent,
+    SitesComponent,
+    CriarSitesComponent,
+    EditarSitesComponent
   ],
   imports: [
     BrowserModule,
