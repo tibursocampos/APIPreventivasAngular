@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "APIPreventivasAngular"
+    }
+  },
+  "defaultProject": "APIPreventivasAngular",
+  "cli": {
+    "analytics": "a7bb6047-57d2-4578-8447-222ca16d2b00"
+  }
 }
