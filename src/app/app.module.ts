@@ -17,6 +17,7 @@ import { SitesComponent } from './sites/sites.component';
 import { CriarSitesComponent } from './criar-sites/criar-sites.component';
 import { EditarSitesComponent } from './editar-sites/editar-sites.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NavCronoComponent } from './nav-crono/nav-crono.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NavbarComponent,
     SitesComponent,
     CriarSitesComponent,
-    EditarSitesComponent
+    EditarSitesComponent,
+    NavCronoComponent
   ],
   imports: [
     BrowserModule,
