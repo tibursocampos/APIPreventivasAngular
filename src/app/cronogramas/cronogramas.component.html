@@ -1,1 +1,38 @@
-<p>cronogramas works!</p>
+<nav class="justify-content-center ">
+    <div class="conteudo-cronograma align-items-center">
+      <div class="table-cronograma">
+        <table class="table table-bordered">
+          <thead class="text-center ">
+            <tr>
+              <th>Cronograma ID</th>
+              <th>Supervisor</th>
+              <th>Mês</th>
+              <th>Ano</th>
+              <th>Status</th>
+              <th>Data Conclusão</th>
+            </tr>
+          </thead>
+            <tbody>      
+                    <tr *ngFor="let cronograma of cronogramas">
+                    <th scope="row">{{ cronograma.idCronograma }}</th>
+                    <td>{{ cronograma.idSupervisor }}</td>
+                    <td>{{ cronograma.mes }}</td>
+                    <td>{{ cronograma.ano }}</td> 
+                    <td>{{ cronograma.concluido }}</td> 
+                    <td>{{ cronograma.dataConclusao | date:"dd/MM/yyyy"}}</td>
+                    <!-- <td>
+                        <div class="btn-group">
+                        <button (click)="ativarDesativar(usuario.usuarioId)" type="button" class="btn btn-outline-secondary btn-sm">{{usuario.ativo == true ? 'Desativar' : 'Ativar'}}</button>             
+                        </div>
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                        <button (click)="editar(usuario.usuarioId)" type="button" class="btn btn-outline-info btn-sm">Editar</button>             
+                        </div>
+                    </td> -->
+                </tr>
+                </tbody>
+        </table>
+      </div>
+    </div>
+  </nav>

@@ -1,3 +1,5 @@
+import { SiteService } from './services/site.service';
+import { CronogramaService } from './services/cronograma.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -7,17 +9,18 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CronogramaDetalhadoComponent } from './cronograma-detalhado/cronograma-detalhado.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
-import { CriarUsuariosComponent } from './criar-usuarios/criar-usuarios.component';
 import { CronogramasComponent } from './cronogramas/cronogramas.component';
-import { CriarCronogramasComponent } from './criar-cronogramas/criar-cronogramas.component';
-import { EditarCronogramasComponent } from './editar-cronogramas/editar-cronogramas.component';
-import { EditarUsuariosComponent } from './editar-usuarios/editar-usuarios.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SitesComponent } from './sites/sites.component';
-import { CriarSitesComponent } from './criar-sites/criar-sites.component';
-import { EditarSitesComponent } from './editar-sites/editar-sites.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavCronoComponent } from './nav-crono/nav-crono.component';
+import { CriarCronogramasComponent } from './cronogramas/criar-cronogramas/criar-cronogramas.component';
+import { EditarCronogramasComponent } from './cronogramas/editar-cronogramas/editar-cronogramas.component';
+import { CriarSitesComponent } from './sites/criar-sites/criar-sites.component';
+import { EditarSitesComponent } from './sites/editar-sites/editar-sites.component';
+import { CriarUsuariosComponent } from './usuarios/criar-usuarios/criar-usuarios.component';
+import { EditarUsuariosComponent } from './usuarios/editar-usuarios/editar-usuarios.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,23 +28,24 @@ import { NavCronoComponent } from './nav-crono/nav-crono.component';
     LoginComponent,
     DashboardComponent,
     CronogramaDetalhadoComponent,
-    UsuariosComponent,
-    CriarUsuariosComponent,
+    UsuariosComponent,    
     CronogramasComponent,
-    CriarCronogramasComponent,
-    EditarCronogramasComponent,
-    EditarUsuariosComponent,
     NavbarComponent,
     SitesComponent,
+    NavCronoComponent,
+    CriarCronogramasComponent,
+    EditarCronogramasComponent,
     CriarSitesComponent,
     EditarSitesComponent,
-    NavCronoComponent
+    CriarUsuariosComponent,
+    EditarUsuariosComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClientModule,CronogramaService, SiteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

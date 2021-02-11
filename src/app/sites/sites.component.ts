@@ -1,3 +1,5 @@
+import { SiteService } from './../services/site.service';
+import { Site } from './../models/Site';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sites.component.css']
 })
 export class SitesComponent implements OnInit {
+  public sites: Site[];
 
-  constructor() { }
+  constructor(
+    private siteService: SiteService
+  ) { }
 
   ngOnInit(): void {
+    this.carregaSites();
+  }
+  
+  carregaSites(){
+    this.siteService.getAll().subscribe(
+      (sites: Site[]) => {
+        this.sites = sites;
+      },
+      (erro: any) => {
+        console.error(erro);
+      }
+    );
   }
 
 }

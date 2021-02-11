@@ -1,1 +1,40 @@
-<p>sites works!</p>
+<nav class="justify-content-center ">
+    <div class="conteudo-cronograma align-items-center">
+      <div class="table-cronograma">
+        <table class="table table-bordered">
+          <thead class="text-center ">
+            <tr>
+              <th>Endereço ID</th>
+              <th>GSM</th>
+              <th>UMTS - 3G</th>
+              <th>LTE - 4G</th>
+              <th>Cidade</th>
+              <th>Estado</th>
+              <th>ANF</th>
+            </tr>
+          </thead>
+            <tbody>      
+                    <tr *ngFor="let site of sites">
+                    <th scope="row">{{ site.endId }}</th>
+                    <td>{{ site.siteGsm }}</td>
+                    <td>{{ site.site3g }}</td>
+                    <td>{{ site.siteLte }}</td> 
+                    <td>{{ site.cidade }}</td> 
+                    <td>{{ site.estado }}</td>
+                    <td>{{ site.anf }}</td>
+                    <!-- <td>
+                        <div class="btn-group">
+                        <button (click)="ativarDesativar(usuario.usuarioId)" type="button" class="btn btn-outline-secondary btn-sm">{{usuario.ativo == true ? 'Desativar' : 'Ativar'}}</button>             
+                        </div>
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                        <button (click)="editar(usuario.usuarioId)" type="button" class="btn btn-outline-info btn-sm">Editar</button>             
+                        </div>
+                    </td> -->
+                </tr>
+                </tbody>
+        </table>
+      </div>
+    </div>
+  </nav>
