@@ -1,3 +1,4 @@
+import { MesesEnum } from './../models/enum/MesesEnum';
 import { CronogramaService } from './../services/cronograma.service';
 import { CronogramasComponent } from './../cronogramas/cronogramas.component';
 import { Cronograma } from './../models/Cronograma';
@@ -18,21 +19,19 @@ export class NavCronoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.carregaUltimoCronograma();
-    // this.titulo = `Cronograma ${this.ultimoCronograma.mes} de ${this.ultimoCronograma.ano}`;
+    this.carregaUltimoCronograma();    
   }
   
   carregaUltimoCronograma(){
     this.cronogramaService.getAll().subscribe(
       (cronogramas: Cronograma[]) => {
-        this.ultimoCronograma = cronogramas.pop();
+        this.ultimoCronograma = cronogramas.pop();        
+        this.titulo = `Cronograma ${this.ultimoCronograma.mes} de ${this.ultimoCronograma.ano}`;
       },
       (erro: any) => {
         console.error(erro);
       }
     );
-  } 
-  
-    
+  }   
 
 }

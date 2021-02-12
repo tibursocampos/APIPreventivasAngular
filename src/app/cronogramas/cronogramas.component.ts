@@ -9,6 +9,7 @@ import { CronogramaService } from './../services/cronograma.service';
   styleUrls: ['./cronogramas.component.css']
 })
 export class CronogramasComponent implements OnInit {
+  public title: string = "Cronogramas";
   public cronogramas: Cronograma[];
 
   constructor(
