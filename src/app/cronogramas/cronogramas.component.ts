@@ -19,7 +19,7 @@ export class CronogramasComponent implements OnInit {
     this.carregaCronogramas();
   }
   
-  carregaCronogramas() {
+  public carregaCronogramas() {
     this.cronogramaService.getAll().subscribe(
       (cronogramas: Cronograma[]) => {
         this.cronogramas = cronogramas;
