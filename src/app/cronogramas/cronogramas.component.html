@@ -1,36 +1,42 @@
+
 <app-title [title]="title"></app-title>
-<nav class="justify-content-center ">
-    <div class="conteudo-cronograma align-items-center">
-      <div class="table-cronograma">
-        <table class="table table-bordered">
+<nav class="justify-content-center "> 
+  <div class="input-group mb-3 col-md-6">
+    <input type="text" class="form-control" [(ngModel)]="mesBusca" placeholder="Buscar cronograma por mês" aria-label="Recipient's username" aria-describedby="button-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" (click)="buscarMes()" >Buscar</button>
+          <button class="btn btn-outline-primary" type="button"  routerLinkActive='active' routerLink='/cronograma-criar' >Novo Cronograma</button>         
+      </div>  
+  </div>    
+    <div class="conteudo-cronograma align-items-center">      
+      <div class="table-cronograma">      
+        <table class="table table-bordered">        
           <thead class="text-center ">
             <tr>
-              <th>Cronograma ID</th>
-              <th>Supervisor</th>
+              <!-- <th>Cronograma ID</th> -->
               <th>Mês</th>
               <th>Ano</th>
               <th>Status</th>
-              <th>Data Conclusão</th>
+              <th>Data Conclusão</th>              
+              <th>Supervisor</th>
+              <th>Ações</th>
             </tr>
           </thead>
-            <tbody>      
+            <tbody class="text-center">      
                     <tr *ngFor="let cronograma of cronogramas">
-                    <th scope="row">{{ cronograma.idCronograma }}</th>
-                    <td>{{ cronograma.idSupervisor }}</td>
+                    <!-- <th scope="row">{{ cronograma.idCronograma }}</th> -->
                     <td>{{ cronograma.mes }}</td>
                     <td>{{ cronograma.ano }}</td> 
                     <td>{{ cronograma.concluido }}</td> 
                     <td>{{ cronograma.dataConclusao | date:"dd/MM/yyyy"}}</td>
-                    <!-- <td>
-                        <div class="btn-group">
-                        <button (click)="ativarDesativar(usuario.usuarioId)" type="button" class="btn btn-outline-secondary btn-sm">{{usuario.ativo == true ? 'Desativar' : 'Ativar'}}</button>             
-                        </div>
-                    </td>
+                    <td>{{ cronograma.idSupervisor }}</td>
                     <td>
-                        <div class="btn-group">
-                        <button (click)="editar(usuario.usuarioId)" type="button" class="btn btn-outline-info btn-sm">Editar</button>             
-                        </div>
-                    </td> -->
+                      <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-outline-secondary">Alvos</button>
+                        <button (click)="editar(cronograma.idCronograma)" type="button" class="btn btn-outline-secondary">Editar</button>
+                        <button type="button" class="btn btn-outline-danger">Excluir</button>
+                      </div>
+                    </td>
                 </tr>
                 </tbody>
         </table>

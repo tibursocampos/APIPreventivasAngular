@@ -49,17 +49,17 @@ const routes: Routes = [
     data: { title: 'Dashboard' }
   },
   {
-    path: 'cronograma-editar',
+    path: 'cronograma-editar/:idCronograma',
     component: CriarCronogramasComponent,
     data: { title: 'Editar Cronograma' }
   },
   {
-    path: 'site-editar',
+    path: 'site-editar/:idCronograma',
     component: EditarSitesComponent,
     data: { title: 'Editar Site' }
   },
   {
-    path: 'usuario-editar',
+    path: 'usuario-editar/:idCronograma',
     component: EditarUsuariosComponent,
     data: { title: 'Editar Usuario' }
   },

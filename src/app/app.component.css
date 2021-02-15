@@ -47,6 +47,11 @@
     padding-top: 10px;
   }
   
+  body{
+    background: #F3F5F7;
+    padding-top: 10px;
+  }
+  
   .nav-topo{
       background-color: #FFF;
       align-items: center;
@@ -64,7 +69,7 @@
     background-color: #FFF;
   }
   
-  .nav-topo .btn-default {
+  .nav-topo .btn-default body{
     font-size: 16px;
     font-family: "Nunito Sans";
     color: #97A3B5;

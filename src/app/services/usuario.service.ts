@@ -17,4 +17,12 @@ import { Usuario } from "../models/Usuario";
         getAll(): Observable<Usuario[]>{
             return this.http.get<Usuario[]>(`${this.baseUrl}`);
         }
+        
+        getUsuarioNome(nome: string): Observable<Usuario[]>{
+            return this.http.get<Usuario[]>(`${this.baseUrl}/busca?nome=${nome}`);
+        }
+        
+        getUsuarioSupervisor(): Observable<Usuario[]>{
+            return this.http.get<Usuario[]>(`${this.baseUrl}/supervisores`);
+        }
     }

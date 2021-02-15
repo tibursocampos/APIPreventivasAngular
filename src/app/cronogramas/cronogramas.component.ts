@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Cronograma } from './../models/Cronograma';
 import { CronogramaService } from './../services/cronograma.service';
@@ -11,8 +12,10 @@ import { CronogramaService } from './../services/cronograma.service';
 export class CronogramasComponent implements OnInit {
   public title: string = "Cronogramas";
   public cronogramas: Cronograma[];
+  public mesBusca: number;
 
   constructor(
+    private route: Router,
     private cronogramaService: CronogramaService
   ) { }
 
@@ -20,7 +23,7 @@ export class CronogramasComponent implements OnInit {
     this.carregaCronogramas();
   }
   
-  public carregaCronogramas() {
+  carregaCronogramas() {
     this.cronogramaService.getAll().subscribe(
       (cronogramas: Cronograma[]) => {
         this.cronogramas = cronogramas;
@@ -29,12 +32,22 @@ export class CronogramasComponent implements OnInit {
         console.error(erro);
       }
     );
-    // throw new Error('Method not implemented.');
   }
   
-  // exibirTodos(){
-  //   this.carregaCronogramas();
-  // }
+  buscarMes(){
+    this.cronogramaService.getCronogramaMes(this.mesBusca).subscribe(
+      (listaCronogramas: Cronograma[]) => {
+        this.cronogramas = listaCronogramas;
+      },
+      (erro: any) => {
+        console.error(erro);
+      }
+    );
+  }
+  
+  editar(cronogramaId: number){
+    this.route.navigate(["/cronograma-editar", cronogramaId]); 
+  } 
   
 
 }
