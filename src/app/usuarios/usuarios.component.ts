@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsuariosComponent implements OnInit {
   public usuarios: Usuario[];
+  public title: string = "Usuarios";
 
   constructor(
     private usuarioService: UsuarioService

@@ -1,3 +1,4 @@
+import { AlvosComponent } from './cronogramas/alvos/alvos.component';
 import { SitesComponent } from './sites/sites.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { LoginComponent } from './login/login.component';
@@ -49,17 +50,17 @@ const routes: Routes = [
     data: { title: 'Dashboard' }
   },
   {
-    path: 'cronograma-editar',
+    path: 'cronograma-editar/:idCronograma',
     component: CriarCronogramasComponent,
     data: { title: 'Editar Cronograma' }
   },
   {
-    path: 'site-editar',
+    path: 'site-editar/:idCronograma',
     component: EditarSitesComponent,
     data: { title: 'Editar Site' }
   },
   {
-    path: 'usuario-editar',
+    path: 'usuario-editar/:idCronograma',
     component: EditarUsuariosComponent,
     data: { title: 'Editar Usuario' }
   },
@@ -77,6 +78,11 @@ const routes: Routes = [
     path: 'usuarios',
     component: UsuariosComponent,
     data: { title: 'Usuarios' }
+  },
+  {
+    path: 'alvos',
+    component: AlvosComponent,
+    data: { title: 'Alvos' }
   }
 ];
 

@@ -21,6 +21,9 @@ import { EditarSitesComponent } from './sites/editar-sites/editar-sites.componen
 import { CriarUsuariosComponent } from './usuarios/criar-usuarios/criar-usuarios.component';
 import { EditarUsuariosComponent } from './usuarios/editar-usuarios/editar-usuarios.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TitleComponent } from './title/title.component';
+import { CronogramaDetalhadoService } from './services/cronograma-detalhado.service';
+import { AlvosComponent } from './cronogramas/alvos/alvos.component';
 
 @NgModule({
   declarations: [
@@ -39,13 +42,17 @@ import { HttpClientModule } from '@angular/common/http';
     EditarSitesComponent,
     CriarUsuariosComponent,
     EditarUsuariosComponent,
+    TitleComponent,
+    AlvosComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [HttpClientModule,CronogramaService, SiteService],
+  providers: [HttpClientModule,CronogramaService, SiteService, CronogramaDetalhadoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

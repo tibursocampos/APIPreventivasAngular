@@ -1,3 +1,4 @@
+<app-title [title]="title"></app-title>
 <nav class="justify-content-center ">
     <div class="conteudo-cronograma align-items-center">
       <div class="table-cronograma">
@@ -13,7 +14,7 @@
               <th>ANF</th>
             </tr>
           </thead>
-            <tbody>      
+          <tbody class="text-center">       
                     <tr *ngFor="let site of sites">
                     <th scope="row">{{ site.endId }}</th>
                     <td>{{ site.siteGsm }}</td>

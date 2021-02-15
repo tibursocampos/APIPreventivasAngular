@@ -1,1 +1,31 @@
-<p>criar-cronogramas works!</p>
+<app-title [title]="title"></app-title>
+<form [formGroup]="cronogramaForm" (submit)="cronogramaSubmit()">
+    <div class="form-group"> 
+      <div class="form-row">     
+        <label for="supervisor">Supervisor</label>
+            <select class="form-control" formControlName="idSupervisor" id="supervisor">
+              <option *ngFor="let supervisor of supervisores" [ngValue]="supervisor.idUsuario">
+               {{supervisor.primeiroNome}}
+             </option>
+            </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <label for="supervisor">Mês do Cronograma</label>
+      <select class="form-control" formControlName="mes" id="mes">
+        <option *ngFor="let mes of mesesArray let i = index" [ngValue]="i + 1" >
+          {{mes}}
+        </option>
+      </select> 
+    </div>
+    <div class="form-row">
+      <label for="supervisor">Ano do Cronograma</label>
+      <input type="number" formControlName="ano">
+    </div>          
+        
+    
+      <button [disabled]="!cronogramaForm.valid" class="btn btn-primary" type="submit" >Salvar</button>
+      <!-- <button class="btn btn-primary m-3" type="submit" (click)="limparForm()">Limpar</button>-->
+      <button class="btn btn-primary" type="submit" (click)="voltarCronogramas()" >Voltar</button>
+  
+  </form>

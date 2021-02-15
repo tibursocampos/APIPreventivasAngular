@@ -17,6 +17,18 @@ import { Cronograma } from './../models/Cronograma';
         getAll(): Observable<Cronograma[]>{
             return this.http.get<Cronograma[]>(`${this.baseUrl}`);
         }
+        
+        getCronogramaMes(mes: number): Observable<Cronograma[]>{
+            return this.http.get<Cronograma[]>(`${this.baseUrl}/busca?mes=${mes}`);
+        }
+        
+        createCronograma(cronograma: Cronograma): Observable<Cronograma>{
+            return this.http.post<Cronograma>(this.baseUrl, cronograma);
+        }
+        
+        editCronograma(idCronograma: number, cronograma: Cronograma): Observable<Cronograma>{
+            return this.http.put<Cronograma>(`${this.baseUrl}/${idCronograma}`, cronograma);
+        }
     }
  
  

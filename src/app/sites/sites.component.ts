@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SitesComponent implements OnInit {
   public sites: Site[];
+  public title: string = "Sites";
 
   constructor(
     private siteService: SiteService
