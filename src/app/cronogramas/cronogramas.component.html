@@ -5,6 +5,7 @@
     <input type="text" class="form-control" [(ngModel)]="mesBusca" placeholder="Buscar cronograma por mês" aria-label="Recipient's username" aria-describedby="button-addon2">
       <div class="input-group-append">
         <button class="btn btn-outline-secondary" type="button" (click)="buscarMes()" >Buscar</button>
+        <button class="btn btn-outline-secondary" type="button" (click)="carregaCronogramas()" >Exibir Todos</button>
           <button class="btn btn-outline-primary" type="button"  routerLinkActive='active' routerLink='/cronograma-criar' >Novo Cronograma</button>         
       </div>  
   </div>    
@@ -32,7 +33,7 @@
                     <td>{{ cronograma.idSupervisor }}</td>
                     <td>
                       <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-outline-secondary">Alvos</button>
+                        <button (click)="alvos()" [ngValue]="cronograma.idCronograma" type="button" class="btn btn-outline-secondary">Alvos</button>
                         <button (click)="editar(cronograma.idCronograma)" type="button" class="btn btn-outline-secondary">Editar</button>
                         <button type="button" class="btn btn-outline-danger">Excluir</button>
                       </div>

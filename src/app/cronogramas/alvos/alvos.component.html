@@ -1,1 +1,41 @@
-<p>alvos works!</p>
+<app-title [title]="title"></app-title>
+<nav class="justify-content-center "> 
+  <div class="input-group mb-3 col-md-6">
+      <div class="input-group-append">
+        <button class="btn btn-outline-primary" type="button"  routerLinkActive='active' routerLink='/alvo-criar'>Novo Alvo</button>         
+        <button class="btn btn-outline-secondary" type="button" (click)="voltar()">Voltar</button>
+      </div>  
+  </div> 
+      <div class="table-cronograma">      
+        <table class="table table-bordered">        
+          <thead class="text-center ">
+            <tr>
+              <!-- <th>Cronograma ID</th> -->
+              <th>End ID</th>
+              <th>Nome GSM</th>
+              <th>Nome 3G</th>
+              <th>Status</th>
+              <th>Data Conclusão</th>              
+              <th>Ações</th>
+            </tr>
+          </thead>
+            <tbody class="text-center">      
+                    <tr *ngFor="let alvo of alvos">
+                    <!-- <th scope="row">{{ alvo.idAlvo }}</th> -->
+                    <td>{{ alvo.endId }}</td>
+                    <td>{{ alvo.siteGsm }}</td> 
+                    <td>{{ alvo.site3g }}</td> 
+                    <td>{{ alvo.concluido }}</td>
+                    <td>{{ alvo.dataConclusao | date:"dd/MM/yyyy" }}</td>
+                    <td>
+                      <div class="btn-group" role="group" aria-label="Basic example">
+                        <!-- <button (click)="alvos()" type="button" class="btn btn-outline-secondary">Alvos</button>
+                        <button (click)="editar(cronograma.idCronograma)" type="button" class="btn btn-outline-secondary">Editar</button> -->
+                        <button type="button" class="btn btn-outline-danger">Excluir</button>
+                      </div>
+                    </td>
+                </tr>
+                </tbody>
+        </table>
+    </div>
+  </nav>

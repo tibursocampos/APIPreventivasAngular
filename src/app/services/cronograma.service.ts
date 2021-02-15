@@ -25,6 +25,10 @@ import { Cronograma } from './../models/Cronograma';
         createCronograma(cronograma: Cronograma): Observable<Cronograma>{
             return this.http.post<Cronograma>(this.baseUrl, cronograma);
         }
+        
+        editCronograma(idCronograma: number, cronograma: Cronograma): Observable<Cronograma>{
+            return this.http.put<Cronograma>(`${this.baseUrl}/${idCronograma}`, cronograma);
+        }
     }
  
  

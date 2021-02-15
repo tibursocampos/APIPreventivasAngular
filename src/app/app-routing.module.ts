@@ -1,3 +1,4 @@
+import { AlvosComponent } from './cronogramas/alvos/alvos.component';
 import { SitesComponent } from './sites/sites.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { LoginComponent } from './login/login.component';
@@ -77,6 +78,11 @@ const routes: Routes = [
     path: 'usuarios',
     component: UsuariosComponent,
     data: { title: 'Usuarios' }
+  },
+  {
+    path: 'alvos',
+    component: AlvosComponent,
+    data: { title: 'Alvos' }
   }
 ];
 

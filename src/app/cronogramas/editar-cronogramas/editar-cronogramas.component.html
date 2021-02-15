@@ -1,1 +1,30 @@
-<p>editar-cronogramas works!</p>
+<app-title [title]="title"></app-title>
+<form [formGroup]="cronogramaEditForm">
+    <div class="form-group"> 
+      <div class="form-row">   
+        <input type="hidden" class="form-control" formControlName="idCronograma">  
+        <label for="supervisor">Supervisor</label>
+            <select class="form-control" formControlName="idSupervisor" id="supervisor">
+              <option>
+             </option>
+            </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <label for="supervisor">Mês do Cronograma</label>
+      <select class="form-control" formControlName="mes" id="mes">
+        <option>
+        </option>
+      </select> 
+    </div>
+    <div class="form-row">
+      <label for="supervisor">Ano do Cronograma</label>
+      <input type="number" formControlName="ano">
+    </div>          
+        
+    
+      <button [disabled]="!cronogramaEditForm.valid" (click)="salvar()" class="btn btn-primary" type="submit" >Salvar</button>
+      <!-- <button class="btn btn-primary m-3" type="submit" (click)="limparForm()">Limpar</button>-->
+      <button class="btn btn-primary" type="submit" (click)="voltar()" >Voltar</button>
+  
+  </form>
