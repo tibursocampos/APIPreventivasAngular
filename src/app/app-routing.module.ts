@@ -56,7 +56,7 @@ const routes: Routes = [
     data: { title: 'Editar Cronograma' }
   },
   {
-    path: 'site-editar/:idCronograma',
+    path: 'site-editar/:idSite',
     component: EditarSitesComponent,
     data: { title: 'Editar Site' }
   },

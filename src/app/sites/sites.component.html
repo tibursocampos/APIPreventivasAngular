@@ -27,7 +27,7 @@
                     <td>{{ site.anf }}</td>
                     <td>
                       <div class="btn-group" role="group" aria-label="Basic example">                        
-                        <button type="button" class="btn btn-outline-secondary">Editar</button>
+                        <button (click)="editarSite(site.idSite)" type="button" class="btn btn-outline-secondary">Editar</button>
                         <button (click)="apagarSite(site.idSite)" type="button" class="btn btn-outline-danger">Excluir</button>
                       </div>
                     </td>

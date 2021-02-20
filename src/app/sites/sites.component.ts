@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { SiteService } from './../services/site.service';
 import { Site } from './../models/Site';
 import { Component, OnInit } from '@angular/core';
@@ -12,7 +13,8 @@ export class SitesComponent implements OnInit {
   public title: string = "Sites";
 
   constructor(
-    private siteService: SiteService
+    private siteService: SiteService,
+    private route: Router
   ) { }
 
   ngOnInit(): void {
@@ -43,5 +45,9 @@ export class SitesComponent implements OnInit {
     );
   }
 }
+  
+  editarSite(idSite: number){
+    this.route.navigate(['site-editar', idSite]);
+  }
 
 }
