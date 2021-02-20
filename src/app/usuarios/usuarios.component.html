@@ -1,6 +1,7 @@
 <app-title [title]="title"></app-title>
 <nav class="justify-content-center ">
     <div class="conteudo-cronograma align-items-center">
+      <button class="btn btn-outline-primary" type="button"  routerLinkActive='active' routerLink='/usuario-criar' >Novo Usuário</button>          
       <div class="table-cronograma">
         <table class="table table-bordered">
           <thead class="text-center ">
@@ -12,6 +13,7 @@
               <th>Regional ANF</th>
               <th>Atuação</th>
               <th>Permissão</th>
+              <th>Ações</th>
             </tr>
           </thead>
                 <tbody class="text-center">       
@@ -23,16 +25,12 @@
                     <td>{{ usuario.anf }}</td> 
                     <td>{{ usuario.area }}</td>
                     <td>{{ usuario.permissao }}</td>
-                    <!-- <td>
-                        <div class="btn-group">
-                        <button (click)="ativarDesativar(usuario.usuarioId)" type="button" class="btn btn-outline-secondary btn-sm">{{usuario.ativo == true ? 'Desativar' : 'Ativar'}}</button>             
-                        </div>
-                    </td>
                     <td>
-                        <div class="btn-group">
-                        <button (click)="editar(usuario.usuarioId)" type="button" class="btn btn-outline-info btn-sm">Editar</button>             
-                        </div>
-                    </td> -->
+                        <div class="btn-group" role="group" aria-label="Basic example">                        
+                        <button (click)="editarUsuario(usuario.idUsuario)" type="button" class="btn btn-outline-secondary">Editar</button>
+                        <button (click)="apagarUsuario(usuario.idUsuario)" type="button" class="btn btn-outline-danger">Excluir</button>
+                      </div>
+                    </td>
                 </tr>
                 </tbody>
         </table>
