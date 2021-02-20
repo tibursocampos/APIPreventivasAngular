@@ -1,9 +1,8 @@
 <app-nav-crono></app-nav-crono>
   <nav class="justify-content-center ">
-    <div class="conteudo-cronograma align-items-center">
       <div class="table-cronograma">
         <table class="table table-bordered">
-          <thead class="text-center ">
+          <thead class="text-center">
             <tr>
               <th>Endereço ID</th>
               <th>Site GSM</th>
@@ -14,11 +13,11 @@
               <th>Status</th>
             </tr>
           </thead>
-          <tbody>      
+          <tbody class="text-center">      
             <tr *ngFor="let detalhe of cronogramaDetalhado">
               <th>{{ detalhe.endId }}</th>
               <td>{{ detalhe.siteGsm }}</td>
-              <td>{{ detalhe.site3G }}</td>
+              <td>{{ detalhe.site3g }}</td>
               <td>{{ detalhe.tipoAtividade }}</td>
               <td>{{ detalhe.dataProgramacao | date:"dd/MM/yyyy"  }}</td> 
               <td>{{ detalhe.dataConclusao | date:"dd/MM/yyyy"  }}</td>
@@ -37,5 +36,4 @@
           </tbody>
         </table>
       </div>
-    </div>
   </nav>

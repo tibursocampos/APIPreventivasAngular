@@ -1,7 +1,7 @@
 import { Alvo } from './../../models/Alvo';
 import { CronogramaDetalhadoService } from './../../services/cronograma-detalhado.service';
 import { CronogramaDetalhado } from './../../models/CronogramaDetalhado';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AlvoService } from './../../services/alvo.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -13,17 +13,19 @@ import { Component, OnInit } from '@angular/core';
 export class AlvosComponent implements OnInit {
   
   public title: string = "Alvos do Cronograma";
-  public alvos: Alvo[];
+  public alvos: Alvo[] = [];
   public idCronograma: number;
+  public idAlvo: number;
 
   constructor(
-    private route: Router,
-    private alvoService: AlvoService,
-    private cronogramaDetalhado: CronogramaDetalhadoService
+    private router: Router,
+    private route: ActivatedRoute,
+    private alvoService: AlvoService
   ) { }
 
   ngOnInit(): void {
-    this.carregaAlvosCronograma(1);
+    this.route.params.subscribe((params: Params) => this.idCronograma = params['idCronograma']);
+    this.carregaAlvosCronograma(this.idCronograma);
   }
   
   carregaAlvosCronograma(idCronograma: number){
@@ -38,7 +40,29 @@ export class AlvosComponent implements OnInit {
   }
   
   voltar(){
-    this.route.navigate(["cronogramas"]);
+    this.router.navigate(["cronogramas"]);
   }
+  
+  criarAlvo(){
+    this.AdicionarAlvo(this.idCronograma);
+  }
+  
+  AdicionarAlvo(idCronograma: number){
+    this.router.navigate(["alvo-criar", idCronograma]);
+  }
+  
+  apagarAlvo(idAlvo: number){
+    if (confirm("Deseja realmente deletar este alvo ?")) {   
+      this.alvoService.deleteAlvo(idAlvo).subscribe(dados => {
+        console.log(dados);
+      },
+      error => console.error(error),
+      () => {
+        alert("Alvo deletado com sucesso !!!");         
+        this.carregaAlvosCronograma(this.idCronograma);
+      }
+    );
+  }
+}
 
 }

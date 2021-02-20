@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TitleComponent } from './title/title.component';
 import { CronogramaDetalhadoService } from './services/cronograma-detalhado.service';
 import { AlvosComponent } from './cronogramas/alvos/alvos.component';
+import { CriarAlvosComponent } from './cronogramas/alvos/criar-alvos/criar-alvos.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { AlvosComponent } from './cronogramas/alvos/alvos.component';
     EditarUsuariosComponent,
     TitleComponent,
     AlvosComponent,
+    CriarAlvosComponent,
   ],
   imports: [
     BrowserModule,

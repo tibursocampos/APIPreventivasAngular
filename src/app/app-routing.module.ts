@@ -1,3 +1,4 @@
+import { CriarAlvosComponent } from './cronogramas/alvos/criar-alvos/criar-alvos.component';
 import { AlvosComponent } from './cronogramas/alvos/alvos.component';
 import { SitesComponent } from './sites/sites.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
@@ -80,9 +81,14 @@ const routes: Routes = [
     data: { title: 'Usuarios' }
   },
   {
-    path: 'alvos',
+    path: 'alvos/:idCronograma',
     component: AlvosComponent,
     data: { title: 'Alvos' }
+  },
+  {
+    path: 'alvo-criar/:idCronograma',
+    component: CriarAlvosComponent,
+    data: { title: 'Criar Alvo' }
   }
 ];
 

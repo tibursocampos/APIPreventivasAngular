@@ -31,6 +31,10 @@ import { Cronograma } from './../models/Cronograma';
             return this.http.post<Alvo>(this.baseUrl, alvo);
         }
         
+        deleteAlvo(idAlvo: number): Observable<Alvo>{
+            return this.http.delete<Alvo>(`${this.baseUrl}/${idAlvo}`);            
+        }
+        
         // editCronograma(idCronograma: number, cronograma: Cronograma): Observable<Cronograma>{
         //     return this.http.put<Cronograma>(`${this.baseUrl}/${idCronograma}`, cronograma);
         // }

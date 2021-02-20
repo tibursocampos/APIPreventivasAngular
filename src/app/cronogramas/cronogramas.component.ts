@@ -49,8 +49,8 @@ export class CronogramasComponent implements OnInit {
     this.route.navigate(["cronograma-editar", cronogramaId]); 
   } 
   
-  alvos(){
-    this.route.navigate(["alvos"]);
+  alvos(id: number){
+    this.route.navigate(["alvos", id]);
   }
   
 
