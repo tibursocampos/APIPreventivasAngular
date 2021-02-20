@@ -18,7 +18,23 @@ import { Site } from '../models/Site';
             return this.http.get<Site[]>(`${this.baseUrl}`);
         }
         
+        getSite(idSite: number): Observable<Site>{
+            return this.http.get<Site>(`${this.baseUrl}/${idSite}`);
+        }           
+        
         getByEndId(endId: string): Observable<Site>{
             return this.http.get<Site>(`${this.baseUrl}/busca?endId=${endId}`);
+        }
+        
+        createSite(site: Site): Observable<Site>{
+            return this.http.post<Site>(this.baseUrl, site);
+        }
+        
+        editSite(idSite: number, site: Site): Observable<Site>{
+            return this.http.put<Site>(`${this.baseUrl}/${idSite}`, site);
+        }
+        
+        deleteSite(idSite: number): Observable<Site>{
+            return this.http.delete<Site>(`${this.baseUrl}/${idSite}`);            
         }
     }

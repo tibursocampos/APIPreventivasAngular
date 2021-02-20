@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { SiteService } from './../services/site.service';
 import { Site } from './../models/Site';
 import { Component, OnInit } from '@angular/core';
@@ -12,7 +13,8 @@ export class SitesComponent implements OnInit {
   public title: string = "Sites";
 
   constructor(
-    private siteService: SiteService
+    private siteService: SiteService,
+    private route: Router
   ) { }
 
   ngOnInit(): void {
@@ -28,6 +30,24 @@ export class SitesComponent implements OnInit {
         console.error(erro);
       }
     );
+  }
+  
+  apagarSite(idSite: number){
+    if (confirm("Deseja realmente apagar este site ?")) {   
+      this.siteService.deleteSite(idSite).subscribe(dados => {
+        console.log(dados);
+      },
+      error => console.error(error),
+      () => {
+        alert("Site apagado com sucesso !!!");         
+        this.carregaSites();
+      }
+    );
+  }
+}
+  
+  editarSite(idSite: number){
+    this.route.navigate(['site-editar', idSite]);
   }
 
 }

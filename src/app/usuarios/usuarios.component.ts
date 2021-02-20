@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsuariosComponent implements OnInit {
   public usuarios: Usuario[];
-  public title: string = "Usuarios";
+  public title: string = "Usuários";
 
   constructor(
     private usuarioService: UsuarioService
@@ -28,6 +28,14 @@ export class UsuariosComponent implements OnInit {
         console.error(erro);
       }
     );
+  }
+  
+  editarUsuario(idUsuario: number){
+    
+  }
+  
+  apagarUsuario(idUsuario: number){
+    
   }
 
 }

@@ -54,7 +54,7 @@ import { CriarAlvosComponent } from './cronogramas/alvos/criar-alvos/criar-alvos
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [HttpClientModule,CronogramaService, SiteService, CronogramaDetalhadoService],
+  providers: [HttpClientModule,CronogramaService, SiteService, CronogramaDetalhadoService, SitesComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

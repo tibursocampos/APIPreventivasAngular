@@ -1,1 +1,47 @@
-<p>criar-sites works!</p>
+<app-title [title]="title"></app-title>
+<form [formGroup]="siteForm" (submit)="siteSubmit()">
+    <div class="form-group">      
+        <label for="inputEndId">Endereço ID</label>
+        <input type="text" class="form-control" formControlName="endId" id="inputEndId">        
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputSiteGsm">Site GSM</label>
+          <input type="text" class="form-control" formControlName="siteGsm" id="inputSiteGsm">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputSite3g">Site 3G</label>
+          <input type="text" class="form-control" formControlName="site3g" id="inputSite3g">
+        </div> 
+        <div class="form-group col-md-6">
+            <label for="inputSiteLte">Site LTE</label>
+            <input type="text" class="form-control" formControlName="siteLte" id="inputSiteLte">
+          </div>       
+    </div>   
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputCidade">Cidade</label>
+          <input type="text" class="form-control" formControlName="cidade" id="inputCidade">          
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputEstado">Estado</label>
+          <select id="inputEstado" formControlName="estado" class="form-control">
+            <option  *ngFor="let estados of estadosArray let i = index" [ngValue]="i">
+            {{estados}}
+            </option>
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputAnf">ANF</label>
+            <select class="form-control" formControlName="anf" id="inputAnf">
+                <option *ngFor="let anf of anfArray let i = index" [ngValue]="i" >
+                  {{anf}}
+                </option>
+              </select> 
+          </div>
+    </div>    
+    
+      <button [disabled]="!siteForm.valid" class="btn btn-primary" type="submit" >Salvar</button>
+      <button class="btn btn-secondary" type="submit" (click)="voltarSites()" >Voltar</button>
+  
+  </form>

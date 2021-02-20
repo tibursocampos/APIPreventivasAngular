@@ -1,3 +1,5 @@
+import { EstadoBrEnum } from './../../../models/enum/EstadoBrEnum';
+import { AnfMgEnum } from './../../../models/enum/AnfMgEnum';
 import { AlvoService } from './../../../services/alvo.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Alvo } from './../../../models/Alvo';
@@ -21,6 +23,8 @@ export class CriarAlvosComponent implements OnInit {
   public siteBusca: string;
   public idSite: number;
   public idCronograma: number;
+  public anfList: AnfMgEnum[] = [];
+  public estadoList: EstadoBrEnum[] = [];
 
   constructor(
     private fb: FormBuilder,
