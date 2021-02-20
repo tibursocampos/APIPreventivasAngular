@@ -1,6 +1,7 @@
 <app-title [title]="title"></app-title>
 <nav class="justify-content-center ">
-    <div class="conteudo-cronograma align-items-center">
+    <div class="conteudo-cronograma align-items-center">     
+      <button class="btn btn-outline-primary" type="button"  routerLinkActive='active' routerLink='/sites-criar' >Novo Site</button>          
       <div class="table-cronograma">
         <table class="table table-bordered">
           <thead class="text-center ">
@@ -12,27 +13,24 @@
               <th>Cidade</th>
               <th>Estado</th>
               <th>ANF</th>
+              <th>Ações</th>
             </tr>
           </thead>
           <tbody class="text-center">       
                     <tr *ngFor="let site of sites">
-                    <th scope="row">{{ site.endId }}</th>
+                    <td>{{ site.endId }}</td>
                     <td>{{ site.siteGsm }}</td>
                     <td>{{ site.site3g }}</td>
                     <td>{{ site.siteLte }}</td> 
                     <td>{{ site.cidade }}</td> 
                     <td>{{ site.estado }}</td>
                     <td>{{ site.anf }}</td>
-                    <!-- <td>
-                        <div class="btn-group">
-                        <button (click)="ativarDesativar(usuario.usuarioId)" type="button" class="btn btn-outline-secondary btn-sm">{{usuario.ativo == true ? 'Desativar' : 'Ativar'}}</button>             
-                        </div>
-                    </td>
                     <td>
-                        <div class="btn-group">
-                        <button (click)="editar(usuario.usuarioId)" type="button" class="btn btn-outline-info btn-sm">Editar</button>             
-                        </div>
-                    </td> -->
+                      <div class="btn-group" role="group" aria-label="Basic example">                        
+                        <button type="button" class="btn btn-outline-secondary">Editar</button>
+                        <button (click)="apagarSite(site.idSite)" type="button" class="btn btn-outline-danger">Excluir</button>
+                      </div>
+                    </td>
                 </tr>
                 </tbody>
         </table>

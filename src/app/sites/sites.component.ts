@@ -29,5 +29,19 @@ export class SitesComponent implements OnInit {
       }
     );
   }
+  
+  apagarSite(idSite: number){
+    if (confirm("Deseja realmente apagar este site ?")) {   
+      this.siteService.deleteSite(idSite).subscribe(dados => {
+        console.log(dados);
+      },
+      error => console.error(error),
+      () => {
+        alert("Site apagado com sucesso !!!");         
+        this.carregaSites();
+      }
+    );
+  }
+}
 
 }

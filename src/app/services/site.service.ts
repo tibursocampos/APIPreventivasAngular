@@ -21,4 +21,12 @@ import { Site } from '../models/Site';
         getByEndId(endId: string): Observable<Site>{
             return this.http.get<Site>(`${this.baseUrl}/busca?endId=${endId}`);
         }
+        
+        createSite(site: Site): Observable<Site>{
+            return this.http.post<Site>(this.baseUrl, site);
+        }
+        
+        deleteSite(idSite: number): Observable<Site>{
+            return this.http.delete<Site>(`${this.baseUrl}/${idSite}`);            
+        }
     }
