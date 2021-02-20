@@ -1,0 +1,41 @@
+<app-title [title]="title"></app-title>
+<nav class="justify-content-center "> 
+    <div class="input-group mb-3 col-md-6">
+      <input type="text" class="form-control" [(ngModel)]="siteBusca" placeholder="End ID" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" (click)="buscarSite()" >Buscar</button>
+            <button class="btn btn-outline-secondary" type="button" (click)="voltar()">Voltar</button>
+            <!-- <button class="btn btn-outline-primary" type="button"  routerLinkActive='active' routerLink='/cronograma-criar' >Novo Cronograma</button>          -->
+        </div>  
+    </div>    
+           
+        <div class="table-cronograma">      
+          <table class="table table-bordered">        
+            <thead class="text-center ">
+              <tr>
+                <!-- <th>Cronograma ID</th> -->
+                <th>End ID</th>
+                <th>Nome GSM</th>
+                <th>Nome 3G</th>
+                <th>Cidade</th>
+                <th>Ação</th>
+              </tr>
+            </thead>
+              <tbody class="text-center">      
+                      <tr *ngFor="let site of site">
+                      <!-- <th scope="row">{{ cronograma.idCronograma }}</th> -->
+                      <td>{{ site.endId }}</td>
+                      <td>{{ site.siteGsm }}</td> 
+                      <td>{{ site.site3g }}</td>  
+                      <td>{{ site.cidade }}</td> 
+                      <td>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                          <button (click)="adicionaAlvo(site.idSite)" [ngValue]="site.idSite" type="button" class="btn btn-outline-secondary">Adicionar Alvo</button>                         
+                        </div>
+                      </td>
+                  </tr>
+                  </tbody>
+          </table>
+        
+      </div>
+    </nav>

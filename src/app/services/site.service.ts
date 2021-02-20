@@ -17,4 +17,8 @@ import { Site } from '../models/Site';
         getAll(): Observable<Site[]>{
             return this.http.get<Site[]>(`${this.baseUrl}`);
         }
+        
+        getByEndId(endId: string): Observable<Site>{
+            return this.http.get<Site>(`${this.baseUrl}/busca?endId=${endId}`);
+        }
     }

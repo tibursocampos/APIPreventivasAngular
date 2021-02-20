@@ -33,7 +33,7 @@
                     <td>{{ cronograma.idSupervisor }}</td>
                     <td>
                       <div class="btn-group" role="group" aria-label="Basic example">
-                        <button (click)="alvos()" [ngValue]="cronograma.idCronograma" type="button" class="btn btn-outline-secondary">Alvos</button>
+                        <button (click)="alvos(cronograma.idCronograma)" [ngValue]="cronograma.idCronograma" type="button" class="btn btn-outline-secondary">Alvos</button>
                         <button (click)="editar(cronograma.idCronograma)" type="button" class="btn btn-outline-secondary">Editar</button>
                         <button type="button" class="btn btn-outline-danger">Excluir</button>
                       </div>
