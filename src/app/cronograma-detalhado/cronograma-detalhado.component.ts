@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { EditarCronogramasComponent } from './../cronogramas/editar-cronogramas/editar-cronogramas.component';
 
 import { TipoAtividadeEnum } from './../models/enum/TipoAtividadeEnum';
 import { CronogramaDetalhado } from './../models/CronogramaDetalhado';
@@ -19,7 +21,8 @@ export class CronogramaDetalhadoComponent implements OnInit {
 
   constructor(
     private cronogramaDetalhadoService: CronogramaDetalhadoService,
-    private cronogramaService: CronogramaService
+    private cronogramaService: CronogramaService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -48,6 +51,10 @@ export class CronogramaDetalhadoComponent implements OnInit {
       }
     );  
   } 
+  
+  editar(idAtividade: number){
+    this.router.navigate(['atividade-editar', idAtividade])
+  }
   
   // exibeNomeAtividade(ativ: TipoAtividadeEnum){
   //   this.atividade = ativ.toString();

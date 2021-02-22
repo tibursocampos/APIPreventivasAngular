@@ -1,1 +1,56 @@
-<p>criar-usuarios works!</p>
+<app-title [title]="title"></app-title>
+<form [formGroup]="usuarioForm" (submit)="usuarioSubmit()">
+    <div class="form-group">      
+        <label for="inputCpf">CPF</label>
+        <input type="text" class="form-control" formControlName="cpf" id="inputCpf">        
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputPrimeiroNome">Nome</label>
+          <input type="text" class="form-control" formControlName="primeiroNome" id="inputPrimeiroNome">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputUltimoNome">Sobrenome</label>
+          <input type="text" class="form-control" formControlName="ultimoNome" id="inputUltimoNome">
+        </div> 
+        <div class="form-group col-md-6">
+            <label for="inputEmail">Email</label>
+            <input type="email" class="form-control" formControlName="email" id="inputEmail">
+          </div>       
+    </div>   
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputSenha">Senha</label>
+          <input type="password" class="form-control" formControlName="senha" id="inputSenha">          
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputAnf">ANF</label>
+          <select id="inputAnf" formControlName="anf" class="form-control">
+            <option  *ngFor="let anf of anfArray let i = index" [ngValue]="i">
+            {{anf}}
+            </option>
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputPermissao">Permissão</label>
+            <select class="form-control" formControlName="permissao" id="inputPermissao">
+                <option *ngFor="let permissao of permissaoArray let i = index" [ngValue]="i+1" >
+                  {{permissao}}
+                </option>
+              </select> 
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputArea">Setor</label>
+            <select class="form-control" formControlName="area" id="inputArea">
+                <option [ngValue]="null">Supervisão</option>
+                <option *ngFor="let setor of setorArray let i = index" [ngValue]="i+1" >
+                  {{setor}}
+                </option>
+              </select> 
+        </div>
+    </div>    
+    
+      <button [disabled]="!usuarioForm.valid" class="btn btn-primary" type="submit" >Salvar</button>
+      <button class="btn btn-secondary" type="submit" (click)="voltarUsuarios()" >Voltar</button>
+  
+  </form>

@@ -1,5 +1,5 @@
 export enum TipoUsuarioEnum{
-    admin = 1,
-    supervisor = 2,
-    tecnico = 3
+    Administrador = 1,
+    Supervisor = 2,
+    Técnico = 3
 }

@@ -25,6 +25,7 @@ import { TitleComponent } from './title/title.component';
 import { CronogramaDetalhadoService } from './services/cronograma-detalhado.service';
 import { AlvosComponent } from './cronogramas/alvos/alvos.component';
 import { CriarAlvosComponent } from './cronogramas/alvos/criar-alvos/criar-alvos.component';
+import { EditarAtividadeComponent } from './cronograma-detalhado/editar-atividade/editar-atividade.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { CriarAlvosComponent } from './cronogramas/alvos/criar-alvos/criar-alvos
     TitleComponent,
     AlvosComponent,
     CriarAlvosComponent,
+    EditarAtividadeComponent,
   ],
   imports: [
     BrowserModule,

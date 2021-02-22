@@ -17,7 +17,7 @@ export class CriarAlvosComponent implements OnInit {
   
   public title = "Adiconar Alvo";
   public sites: Site[];
-  public site: Site;
+  public site: Site[];
   public novoAlvo = new Alvo();
   public alvoForm: FormGroup;
   public siteBusca: string;
@@ -60,9 +60,8 @@ export class CriarAlvosComponent implements OnInit {
   
   buscarSite(){
     this.siteService.getByEndId(this.siteBusca).subscribe(
-      (site: Site)  => {
+      (site: Site[])  => {
         this.site = site;
-        console.log(site);
         if (site[0] == null){
           let r = confirm("Site não encontrado. Deseja adicionar um novo site?");
           if (r == true){
@@ -91,7 +90,7 @@ export class CriarAlvosComponent implements OnInit {
       // error => console.error(error),
       () => {
         alert("Alvo adicionado e atividades criadas !!!");
-        this.limparConsulta();
+        this.siteBusca = "";
       }
     )
   }

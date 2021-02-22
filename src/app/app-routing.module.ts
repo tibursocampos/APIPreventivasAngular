@@ -1,3 +1,4 @@
+import { EditarAtividadeComponent } from './cronograma-detalhado/editar-atividade/editar-atividade.component';
 import { CriarAlvosComponent } from './cronogramas/alvos/criar-alvos/criar-alvos.component';
 import { AlvosComponent } from './cronogramas/alvos/alvos.component';
 import { SitesComponent } from './sites/sites.component';
@@ -61,7 +62,12 @@ const routes: Routes = [
     data: { title: 'Editar Site' }
   },
   {
-    path: 'usuario-editar/:idCronograma',
+    path: 'atividade-editar/:idAtividade',
+    component: EditarAtividadeComponent,
+    data: { title: 'Editar Atividade' }
+  },
+  {
+    path: 'usuario-editar/:idUsuario',
     component: EditarUsuariosComponent,
     data: { title: 'Editar Usuario' }
   },
