@@ -22,8 +22,8 @@ import { Site } from '../models/Site';
             return this.http.get<Site>(`${this.baseUrl}/${idSite}`);
         }           
         
-        getByEndId(endId: string): Observable<Site>{
-            return this.http.get<Site>(`${this.baseUrl}/busca?endId=${endId}`);
+        getByEndId(endId: string): Observable<Site[]>{
+            return this.http.get<Site[]>(`${this.baseUrl}/busca?endId=${endId}`);
         }
         
         createSite(site: Site): Observable<Site>{

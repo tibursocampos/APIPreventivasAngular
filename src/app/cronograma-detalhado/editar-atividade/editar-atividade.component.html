@@ -1,0 +1,37 @@
+<app-title [title]="title"></app-title>
+<form [formGroup]="atividadeEditForm">
+    <div class="form-group"> 
+        <input type="hidden" class="form-control" value="{{ idAtividade }}" formControlName="idAtividade">     
+        <label for="inputAlvo">Alvo</label>
+        <input type="text" class="form-control" formControlName="idAlvo" id="inputAlvo">        
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputTecnico">Técnico</label>
+          <input type="text" class="form-control" formControlName="idTecnico" id="inputTecnico">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputAtividade">Atividade</label>
+            <!-- <input type="text" class="form-control" formControlName="atividade" id="inputAtividade"> -->
+            <select class="form-control" formControlName="tipoAtividade" id="inputAtividade">
+                <option *ngFor="let atividade of tipoAtividadeArray let i = index" [ngValue]="i" >
+                  {{atividade}}
+                </option>
+              </select> 
+          </div>       
+    </div>   
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputDataProgramacao">Data Programação</label>
+          <input type="text" class="form-control" formControlName="dataProgramacao" id="inputDataProgramacao">          
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputDataConclusao">Data Conclusão</label>
+            <input type="text" class="form-control" formControlName="dataConclusao" id="inputDataConclusao" value="{{ dataVazia }}">          
+          </div>        
+    </div>    
+    
+      <button [disabled]="!atividadeEditForm.valid" (click)="salvar()" class="btn btn-primary" type="submit" >Salvar</button>
+      <button class="btn btn-secondary" type="submit" (click)="voltarAtividades()" >Voltar</button>
+  
+  </form>

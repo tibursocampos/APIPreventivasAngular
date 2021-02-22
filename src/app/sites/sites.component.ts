@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class SitesComponent implements OnInit {
   public sites: Site[];
   public title: string = "Sites";
+  public endIdBusca: string;
 
   constructor(
     private siteService: SiteService,
@@ -44,6 +45,28 @@ export class SitesComponent implements OnInit {
       }
     );
   }
+}
+  
+buscarEndId(){
+  this.siteService.getByEndId(this.endIdBusca).subscribe(
+    (sites: Site[]) => {
+      this.sites = sites;
+      if(sites[0] == null){
+        let r = confirm("Site não encontrado, deseja adicionar um novo site?");
+        if (r){
+          this.route.navigate(['sites-criar']);
+        }
+        else {
+          this.endIdBusca="";
+          this.carregaSites();
+        }
+      }        
+    },
+    (erro: any) => {
+      console.error(erro);
+    }
+  );
+  
 }
   
   editarSite(idSite: number){

@@ -10,7 +10,8 @@
               <th>Atividade</th>
               <th>Data Programação</th>
               <th>Data Conclusão</th>
-              <th>Status</th>
+              <th>Status Alvo</th>
+              <th>Ação</th>
             </tr>
           </thead>
           <tbody class="text-center">      
@@ -21,17 +22,12 @@
               <td>{{ detalhe.tipoAtividade }}</td>
               <td>{{ detalhe.dataProgramacao | date:"dd/MM/yyyy"  }}</td> 
               <td>{{ detalhe.dataConclusao | date:"dd/MM/yyyy"  }}</td>
-              <th>{{ detalhe.concluido }}</th>
-              <!-- <td>
-                <div class="btn-group">
-                  <button (click)="ativarDesativar(usuario.usuarioId)" type="button" class="btn btn-outline-secondary btn-sm">{{usuario.ativo == true ? 'Desativar' : 'Ativar'}}</button>             
-                </div>
-              </td>
+              <td>{{ detalhe.concluido }}</td>
               <td>
                 <div class="btn-group">
-                  <button (click)="editar(usuario.usuarioId)" type="button" class="btn btn-outline-info btn-sm">Editar</button>             
+                  <button (click)="editar(detalhe.idAtividade)" type="button" class="btn btn-outline-info btn-sm">Editar</button>             
                 </div>
-              </td>     -->
+              </td>
            </tr>
           </tbody>
         </table>

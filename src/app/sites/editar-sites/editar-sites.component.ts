@@ -84,7 +84,7 @@ export class EditarSitesComponent implements OnInit {
       dados => {
         console.log(dados);
       },
-      error => console.log(error),
+      error => console.error(error),
       () => {
         alert("Site alterado.");
         this.siteEditForm.reset();

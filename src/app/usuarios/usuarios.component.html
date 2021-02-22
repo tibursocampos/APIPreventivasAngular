@@ -1,7 +1,14 @@
 <app-title [title]="title"></app-title>
 <nav class="justify-content-center ">
-    <div class="conteudo-cronograma align-items-center">
-      <button class="btn btn-outline-primary" type="button"  routerLinkActive='active' routerLink='/usuario-criar' >Novo Usuário</button>          
+    <div class="input-group mb-3 col-md-6">
+      <input type="text" class="form-control" [(ngModel)]="nomeBusca" placeholder="Buscar nome usuário" aria-label="Recipient's username" aria-describedby="button-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" (click)="buscarNome()" >Buscar</button>
+        <button class="btn btn-outline-secondary" type="button" (click)="carregaUsuarios()" >Exibir Todos</button>
+        <button class="btn btn-outline-primary" type="button"  routerLinkActive='active' routerLink='/usuario-criar' >Novo Usuário</button>          
+      </div>  
+    </div>
+    <div class="conteudo-cronograma align-items-center">        
       <div class="table-cronograma">
         <table class="table table-bordered">
           <thead class="text-center ">
@@ -36,4 +43,5 @@
         </table>
       </div>
     </div>
+    
   </nav>
