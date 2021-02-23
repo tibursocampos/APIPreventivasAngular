@@ -18,6 +18,10 @@ import { Cronograma } from './../models/Cronograma';
             return this.http.get<Cronograma[]>(`${this.baseUrl}`);
         }
         
+        getCronograma(idCronograma: number): Observable<Cronograma>{
+            return this.http.get<Cronograma>(`${this.baseUrl}/${idCronograma}`);
+        }
+        
         getCronogramaMes(mes: number): Observable<Cronograma[]>{
             return this.http.get<Cronograma[]>(`${this.baseUrl}/busca?mes=${mes}`);
         }
@@ -28,6 +32,10 @@ import { Cronograma } from './../models/Cronograma';
         
         editCronograma(idCronograma: number, cronograma: Cronograma): Observable<Cronograma>{
             return this.http.put<Cronograma>(`${this.baseUrl}/${idCronograma}`, cronograma);
+        }
+        
+        deleteCronograma(idCronograma: number): Observable<Cronograma>{
+            return this.http.delete<Cronograma>(`${this.baseUrl}/${idCronograma}`);            
         }
     }
  

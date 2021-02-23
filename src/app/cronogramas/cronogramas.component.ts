@@ -45,12 +45,27 @@ export class CronogramasComponent implements OnInit {
     );
   }
   
-  editar(cronogramaId: number){
-    this.route.navigate(["cronograma-editar", cronogramaId]); 
+  editar(idCronograma: number){
+    this.route.navigate(["cronograma-editar", idCronograma]); 
   } 
   
   alvos(id: number){
     this.route.navigate(["alvos", id]);
+  }
+  
+  apagarCronograma(idCronograma: number){
+    if(confirm("Deseja realmente apagar este cronograma?")){
+      this.cronogramaService.deleteCronograma(idCronograma).subscribe(
+        dados => {
+          console.log(dados);
+        },
+        error => console.error(error),
+        () => {
+          alert("Cronograma apagado com sucesso.");
+          this.carregaCronogramas();
+        }
+      )
+    }
   }
   
 
