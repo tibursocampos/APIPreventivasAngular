@@ -26,6 +26,9 @@ import { CronogramaDetalhadoService } from './services/cronograma-detalhado.serv
 import { AlvosComponent } from './cronogramas/alvos/alvos.component';
 import { CriarAlvosComponent } from './cronogramas/alvos/criar-alvos/criar-alvos.component';
 import { EditarAtividadeComponent } from './cronograma-detalhado/editar-atividade/editar-atividade.component';
+import { AtividadesDiariasComponent } from './dashboard/graficos/atividades-diarias/atividades-diarias.component';
+import { TotalERealizadasComponent } from './dashboard/graficos/total-e-realizadas/total-e-realizadas.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -48,13 +51,16 @@ import { EditarAtividadeComponent } from './cronograma-detalhado/editar-atividad
     AlvosComponent,
     CriarAlvosComponent,
     EditarAtividadeComponent,
+    AtividadesDiariasComponent,
+    TotalERealizadasComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ChartsModule
   ],
   providers: [HttpClientModule,CronogramaService, SiteService, CronogramaDetalhadoService, SitesComponent],
   bootstrap: [AppComponent]
