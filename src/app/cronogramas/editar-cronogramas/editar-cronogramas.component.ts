@@ -3,7 +3,10 @@ import { Cronograma } from './../../models/Cronograma';
 import { CronogramaService } from './../../services/cronograma.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { UsuarioService } from 'src/app/services/usuario.service';
+import { Usuario } from 'src/app/models/Usuario';
+import { MesesEnum } from 'src/app/models/enum/MesesEnum';
 
 @Component({
   selector: 'app-editar-cronogramas',
@@ -22,15 +25,23 @@ export class EditarCronogramasComponent implements OnInit {
   });
   public cronograma: Cronograma;
   public cronogramaId: number;
+  public supervisores: Usuario[];
+  public meses = MesesEnum;
+  public mesesArray: string[] = [];
 
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private cronogramaService: CronogramaService    
+    private cronogramaService: CronogramaService,
+    private usuarioService: UsuarioService 
   ) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe((params: Params) => this.cronogramaId = params['idCronograma']);
+    this.carregarSupervisores();
+    this.carregarMeses()
+    this.cronogramaService.getCronograma(this.cronogramaId).subscribe(x => this.editarForm(x));
   }
   
   editarForm(cronograma: Cronograma){
@@ -55,6 +66,23 @@ export class EditarCronogramasComponent implements OnInit {
         alert("Cronograma alterado com sucesso !!!");
         this.cronogramaEditForm.reset();
         this.router.navigate(['cronogramas']);
+      }
+    );
+  }
+  
+  carregarMeses(){
+    for (let index = 1; index < 13; index++) {
+      this.mesesArray.push(this.meses[index]);     
+    } 
+  }
+  
+  carregarSupervisores(){
+    this.usuarioService.getUsuarioSupervisor().subscribe(
+      (supervisor: Usuario[]) => {
+        this.supervisores = supervisor;
+      },
+      (erro: any) => {
+        console.error(erro);
       }
     );
   }

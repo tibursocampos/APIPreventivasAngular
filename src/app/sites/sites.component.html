@@ -30,8 +30,8 @@
                     <td>{{ site.site3g }}</td>
                     <td>{{ site.siteLte }}</td> 
                     <td>{{ site.cidade }}</td> 
-                    <td>{{ site.estado }}</td>
-                    <td>{{ site.anf }}</td>
+                    <td>{{ site.estado | estadosBr: site.estado}}</td>
+                    <td>{{ site.anf | anfMg: site.anf }}</td>
                     <td>
                       <div class="btn-group" role="group" aria-label="Basic example">                        
                         <button (click)="editarSite(site.idSite)" type="button" class="btn btn-outline-secondary">Editar</button>

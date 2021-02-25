@@ -26,6 +26,17 @@ import { CronogramaDetalhadoService } from './services/cronograma-detalhado.serv
 import { AlvosComponent } from './cronogramas/alvos/alvos.component';
 import { CriarAlvosComponent } from './cronogramas/alvos/criar-alvos/criar-alvos.component';
 import { EditarAtividadeComponent } from './cronograma-detalhado/editar-atividade/editar-atividade.component';
+import { AtividadesDiariasComponent } from './dashboard/graficos/atividades-diarias/atividades-diarias.component';
+import { TotalERealizadasComponent } from './dashboard/graficos/total-e-realizadas/total-e-realizadas.component';
+import { ChartsModule } from 'ng2-charts';
+import { EstadosBrPipe } from './pipes/estados-br.pipe';
+import { AnfMgPipe } from './pipes/anf-mg.pipe';
+import { AreaTecnicoPipe } from './pipes/area-tecnico.pipe';
+import { PermissaoPipe } from './pipes/permissao.pipe';
+import { MesesPipe } from './pipes/meses.pipe';
+import { NomeSupervisorPipe } from './pipes/nome-supervisor.pipe';
+import { AtividadesPipe } from './pipes/atividades.pipe';
+
 
 @NgModule({
   declarations: [
@@ -48,13 +59,23 @@ import { EditarAtividadeComponent } from './cronograma-detalhado/editar-atividad
     AlvosComponent,
     CriarAlvosComponent,
     EditarAtividadeComponent,
+    AtividadesDiariasComponent,
+    TotalERealizadasComponent,
+    EstadosBrPipe,
+    AnfMgPipe,
+    AreaTecnicoPipe,
+    PermissaoPipe,
+    MesesPipe,
+    NomeSupervisorPipe,
+    AtividadesPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ChartsModule
   ],
   providers: [HttpClientModule,CronogramaService, SiteService, CronogramaDetalhadoService, SitesComponent],
   bootstrap: [AppComponent]

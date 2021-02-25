@@ -23,6 +23,7 @@ export class EditarAtividadeComponent implements OnInit {
   public alvo: Alvo;
   public idUsuario: number;
   public usuario: Usuario;
+  public tecnicos: Usuario[];
   public tipoAtividadeList = TipoAtividadeEnum;
   public tipoAtividadeArray: string[] = [];
   public atividadeEditForm: FormGroup;
@@ -33,12 +34,12 @@ export class EditarAtividadeComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private atividadeService: AtividadeService,
-    private usuarioService: UsuarioService,
-    private alvoService: AlvoService
+    private usuarioService: UsuarioService
   ) { }
 
   ngOnInit(): void {
     this.carregarForm();
+    this.carregarTecnicos();    
     this.carregarTipoAtividade();
     this.route.params.subscribe((params: Params) => this.idAtividade = params['idAtividade']);
     this.atividadeService.getAtividade(this.idAtividade).subscribe(
@@ -88,6 +89,17 @@ export class EditarAtividadeComponent implements OnInit {
     for(let index = 0; index < 5; index++){
       this.tipoAtividadeArray.push(this.tipoAtividadeList[index]);
     }
+  }
+  
+  carregarTecnicos(){
+    this.usuarioService.getUsuarioTecnico().subscribe(
+      (tecnicos: Usuario[]) => {
+        this.tecnicos = tecnicos;
+      },
+      (erro: any) => {
+        console.error(erro);
+      }
+    );
   }
   
   voltarAtividades(){

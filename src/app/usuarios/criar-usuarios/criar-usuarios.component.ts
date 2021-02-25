@@ -72,7 +72,7 @@ export class CriarUsuariosComponent implements OnInit {
   }
   
   carregarSetorTecnico(){
-    for (let index = 1; index < 3; index++){
+    for (let index = 0; index < 3; index++){
       this.setorArray.push(this.setorList[index]);
     }
   }

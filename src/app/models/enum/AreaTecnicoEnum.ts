@@ -1,4 +1,5 @@
 export enum AreaTecnicoEnum{
-    Equipamento = 1,
-    Infraestrutura = 2
+    Equipamento = 0,
+    Infraestrutura = 1,
+    Supervisão = 2
 }

@@ -30,6 +30,10 @@ import { Usuario } from "../models/Usuario";
             return this.http.get<Usuario[]>(`${this.baseUrl}/supervisores`);
         }
         
+        getUsuarioTecnico(): Observable<Usuario[]>{
+            return this.http.get<Usuario[]>(`${this.baseUrl}/tecnicos`);
+        }
+        
         createUsuario(usuario: Usuario): Observable<Usuario>{
             return this.http.post<Usuario>(this.baseUrl, usuario);
         }

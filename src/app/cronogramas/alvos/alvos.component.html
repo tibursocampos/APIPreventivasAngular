@@ -10,7 +10,7 @@
         <table class="table table-bordered">        
           <thead class="text-center ">
             <tr>
-              <th>Cronograma ID</th>
+              <!-- <th>Alvo ID</th> -->
               <th>End ID</th>
               <th>Nome GSM</th>
               <th>Nome 3G</th>
@@ -21,11 +21,11 @@
           </thead>
             <tbody class="text-center">      
                     <tr *ngFor="let alvo of alvos">
-                    <td>{{ alvo.idAlvo }}</td>
+                    <!-- <td>{{ alvo.idAlvo }}</td> -->
                     <td>{{ alvo.endId }}</td>
                     <td>{{ alvo.siteGsm }}</td> 
                     <td>{{ alvo.site3g }}</td> 
-                    <td>{{ alvo.concluido }}</td>
+                    <td>{{ alvo.concluido  == true ? 'Concluído' : 'Não concluído' }}</td>
                     <td>{{ alvo.dataConclusao | date:"dd/MM/yyyy" }}</td>
                     <td>
                       <div class="btn-group" role="group" aria-label="Basic example">

@@ -65,7 +65,6 @@ export class CriarCronogramasComponent implements OnInit {
         this.cronogramaForm.reset();
       }
     );
-    console.log(cronograma);
   }
   
   voltarCronogramas(){

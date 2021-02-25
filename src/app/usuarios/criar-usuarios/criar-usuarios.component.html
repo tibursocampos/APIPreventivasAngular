@@ -42,8 +42,7 @@
         <div class="form-group col-md-6">
             <label for="inputArea">Setor</label>
             <select class="form-control" formControlName="area" id="inputArea">
-                <option [ngValue]="null">Supervisão</option>
-                <option *ngFor="let setor of setorArray let i = index" [ngValue]="i+1" >
+                <option *ngFor="let setor of setorArray let i = index" [ngValue]="i" >
                   {{setor}}
                 </option>
               </select> 

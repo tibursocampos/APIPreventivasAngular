@@ -19,10 +19,10 @@
               <th>{{ detalhe.endId }}</th>
               <td>{{ detalhe.siteGsm }}</td>
               <td>{{ detalhe.site3g }}</td>
-              <td>{{ detalhe.tipoAtividade }}</td>
+              <td>{{ detalhe.tipoAtividade | atividades: detalhe.tipoAtividade}}</td>
               <td>{{ detalhe.dataProgramacao | date:"dd/MM/yyyy"  }}</td> 
               <td>{{ detalhe.dataConclusao | date:"dd/MM/yyyy"  }}</td>
-              <td>{{ detalhe.concluido }}</td>
+              <td>{{ detalhe.concluido == true ? 'Concluído' : 'Não concluído'}}</td>
               <td>
                 <div class="btn-group">
                   <button (click)="editar(detalhe.idAtividade)" type="button" class="btn btn-outline-info btn-sm">Editar</button>             

@@ -14,6 +14,7 @@ import { CriarSitesComponent } from './sites/criar-sites/criar-sites.component';
 import { CriarUsuariosComponent } from './usuarios/criar-usuarios/criar-usuarios.component';
 import { EditarSitesComponent } from './sites/editar-sites/editar-sites.component';
 import { EditarUsuariosComponent } from './usuarios/editar-usuarios/editar-usuarios.component';
+import { EditarCronogramasComponent } from './cronogramas/editar-cronogramas/editar-cronogramas.component';
 
 const routes: Routes = [
   {    
@@ -53,7 +54,7 @@ const routes: Routes = [
   },
   {
     path: 'cronograma-editar/:idCronograma',
-    component: CriarCronogramasComponent,
+    component: EditarCronogramasComponent,
     data: { title: 'Editar Cronograma' }
   },
   {

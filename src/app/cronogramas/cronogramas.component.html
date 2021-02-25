@@ -20,22 +20,24 @@
               <th>Status</th>
               <th>Data Conclusão</th>              
               <th>Supervisor</th>
+              <th>ANF Supervisor</th>
               <th>Ações</th>
             </tr>
           </thead>
             <tbody class="text-center">      
                     <tr *ngFor="let cronograma of cronogramas">
                     <!-- <th scope="row">{{ cronograma.idCronograma }}</th> -->
-                    <td>{{ cronograma.mes }}</td>
+                    <td>{{ cronograma.mes | meses: cronograma.mes}}</td>
                     <td>{{ cronograma.ano }}</td> 
-                    <td>{{ cronograma.concluido }}</td> 
+                    <td>{{ cronograma.concluido == true ? 'Concluído' : 'Não concluído'}}</td> 
                     <td>{{ cronograma.dataConclusao | date:"dd/MM/yyyy"}}</td>
-                    <td>{{ cronograma.idSupervisor }}</td>
+                    <td>{{ cronograma.primeiroNome}}</td>
+                    <td>{{ cronograma.anf | anfMg: cronograma.anf }}</td>
                     <td>
                       <div class="btn-group" role="group" aria-label="Basic example">
                         <button (click)="alvos(cronograma.idCronograma)" [ngValue]="cronograma.idCronograma" type="button" class="btn btn-outline-secondary">Alvos</button>
                         <button (click)="editar(cronograma.idCronograma)" type="button" class="btn btn-outline-secondary">Editar</button>
-                        <button type="button" class="btn btn-outline-danger">Excluir</button>
+                        <button (click)="apagarCronograma(cronograma.idCronograma)" type="button" class="btn btn-outline-danger">Excluir</button>
                       </div>
                     </td>
                 </tr>
