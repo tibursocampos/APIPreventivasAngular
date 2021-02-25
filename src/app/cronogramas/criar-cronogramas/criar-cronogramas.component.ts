@@ -63,6 +63,7 @@ export class CriarCronogramasComponent implements OnInit {
       () => {
         alert("Cronograma criado com sucesso !!!");
         this.cronogramaForm.reset();
+        this.voltarCronogramas();
       }
     );
   }
