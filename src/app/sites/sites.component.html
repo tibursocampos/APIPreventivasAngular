@@ -29,7 +29,7 @@
                     <td>{{ site.siteGsm }}</td>
                     <td>{{ site.site3g }}</td>
                     <td>{{ site.siteLte }}</td> 
-                    <td>{{ site.cidade }}</td> 
+                    <td>{{ site.cidade | uppercase }}</td> 
                     <td>{{ site.estado | estadosBr: site.estado}}</td>
                     <td>{{ site.anf | anfMg: site.anf }}</td>
                     <td>
