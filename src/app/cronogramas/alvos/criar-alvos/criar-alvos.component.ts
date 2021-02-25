@@ -112,7 +112,6 @@ export class CriarAlvosComponent implements OnInit {
         this.alvoForm.reset();
       }
     );
-    console.log(alvo);
   }
 
 }

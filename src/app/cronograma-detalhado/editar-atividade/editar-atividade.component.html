@@ -6,10 +6,16 @@
         <input type="text" class="form-control" formControlName="idAlvo" id="inputAlvo">        
     </div>
     <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="inputTecnico">Técnico</label>
-          <input type="text" class="form-control" formControlName="idTecnico" id="inputTecnico">
+        <div class="form-group col-md-6">        
+          <label for="tecnico">Técnico</label>
+          <select class="form-control" formControlName="idTecnico" id="tecnico">
+            <option *ngFor="let tecnico of tecnicos" [ngValue]="tecnico.idUsuario">
+              {{tecnico.primeiroNome}}  ||  {{tecnico.area | areaTecnico: tecnico.area}}
+            </option>
+          </select>
+          <!-- <input type="text" class="form-control" formControlName="idTecnico" id="inputTecnico"> -->
         </div>
+        
         <div class="form-group col-md-6">
             <label for="inputAtividade">Atividade</label>
             <!-- <input type="text" class="form-control" formControlName="atividade" id="inputAtividade"> -->

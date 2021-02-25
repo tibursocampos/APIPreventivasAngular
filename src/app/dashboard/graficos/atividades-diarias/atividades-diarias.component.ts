@@ -10,9 +10,10 @@ import { Color, Label } from 'ng2-charts';
 export class AtividadesDiariasComponent implements OnInit {
   
   public lineChartData: ChartDataSets[] = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
+    { data: [5, 6, 4, 7, 4, 0, 0, 4, 6, 4, 2, 5, 0, 0, 5, 6, 4, 7, 3, 0, 0, 5, 6, 4, 7, 3, 0, 0, 3, 6], label: 'Atividades x Dia' },
   ];
-  public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  public lineChartLabels: Label[] = ['1','2','3','4','5','6','7','8','9','10','11','12','13','15', '15',
+                                     '16','17','18','19','20','21','22','23','24','25','26','27','28','29','30'];
   public lineChartOptions: (ChartOptions)
   public lineChartColors: Color[] = [
     {

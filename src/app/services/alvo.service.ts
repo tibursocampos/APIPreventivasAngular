@@ -27,6 +27,14 @@ import { Cronograma } from './../models/Cronograma';
             return this.http.get<Alvo[]>(`${this.baseUrl}/AlvosAdd/${idCronograma}`);
         }
         
+        getAlvosConcluidosCronograma(idCronograma: number): Observable<Alvo[]>{
+            return this.http.get<Alvo[]>(`${this.baseUrl}/alvosConcluidos/${idCronograma}`);
+        }
+        
+        getAlvosRestantesCronograma(idCronograma: number): Observable<Alvo[]>{
+            return this.http.get<Alvo[]>(`${this.baseUrl}/alvosRestantes/${idCronograma}`);
+        }
+        
         createAlvo(alvo: Alvo): Observable<Alvo>{
             return this.http.post<Alvo>(this.baseUrl, alvo);
         }

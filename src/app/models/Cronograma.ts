@@ -1,3 +1,4 @@
+import { AnfMgEnum } from 'src/app/models/enum/AnfMgEnum';
 import { MesesEnum } from './enum/MesesEnum';
 export class Cronograma{
     idCronograma: number;
@@ -6,4 +7,6 @@ export class Cronograma{
     ano: number;
     concluido: boolean;
     dataConclusao: Date;
+    primeiroNome: string;
+    anf: AnfMgEnum;
 }

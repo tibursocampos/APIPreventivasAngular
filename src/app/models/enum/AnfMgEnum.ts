@@ -1,8 +1,8 @@
 export enum AnfMgEnum{
     BH = 0, 
-    JF, 
-    GV, 
-    UR, 
-    VG, 
-    DV 
+    JF = 1, 
+    GV = 2, 
+    UR = 3, 
+    VG = 4, 
+    DV = 5
 }
