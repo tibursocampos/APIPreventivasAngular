@@ -21,6 +21,10 @@ import { environment } from "src/environments/environment";
             return this.http.get<Atividade>(`${this.baseUrl}/${idAtividade}`);
         }
         
+        getAtividadesConcluidas(idCronograma: number): Observable<Atividade>{
+            return this.http.get<Atividade>(`${this.baseUrl}/concluidas/cronograma?idCronograma=${idCronograma}`);
+        }
+        
         editAtividade(idAtividade: number, atividade: Atividade): Observable<Atividade>{
             return this.http.put<Atividade>(`${this.baseUrl}/${idAtividade}`, atividade);
         }

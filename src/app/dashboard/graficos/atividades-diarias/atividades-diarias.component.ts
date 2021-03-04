@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
+import { AtividadeService } from 'src/app/services/atividade.service';
+import { CronogramaService } from 'src/app/services/cronograma.service';
 
 @Component({
   selector: 'app-atividades-diarias',
@@ -8,6 +10,26 @@ import { Color, Label } from 'ng2-charts';
   styleUrls: ['./atividades-diarias.component.css']
 })
 export class AtividadesDiariasComponent implements OnInit {
+  
+  @ViewChild('canvas', {static: false}) canvas: ElementRef;
+  public context: CanvasRenderingContext2D;
+  public chart: any;
+  
+  constructor(
+    private cronogramaService: CronogramaService,
+    private atividadeService: AtividadeService,
+  ) { }
+
+  ngOnInit(): void {
+    this.cronogramaService.getAll().subscribe(res => {
+      let ultimoCrono = res.pop().idCronograma; 
+      this.atividadeService.getAtividadesConcluidas(ultimoCrono).subscribe(atividades => {
+        let concluidasCronograma = atividades;
+        console.log(concluidasCronograma);
+      })
+    })
+  }
+  
   
   public lineChartData: ChartDataSets[] = [
     { data: [5, 6, 4, 7, 4, 0, 0, 4, 6, 4, 2, 5, 0, 0, 5, 6, 4, 7, 3, 0, 0, 5, 6, 4, 7, 3, 0, 0, 3, 6], label: 'Atividades x Dia' },
@@ -25,9 +47,6 @@ export class AtividadesDiariasComponent implements OnInit {
   public lineChartType = 'line';
   public lineChartPlugins = [];
 
-  constructor() { }
 
-  ngOnInit(): void {
-  }
 
 }

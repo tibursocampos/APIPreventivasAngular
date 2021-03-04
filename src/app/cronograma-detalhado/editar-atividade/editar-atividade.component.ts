@@ -72,6 +72,8 @@ export class EditarAtividadeComponent implements OnInit {
   salvar(){
     const atividade: Atividade =  this.atividadeEditForm.value;
     atividade.idTecnico = Number(atividade.idTecnico);
+    !atividade.dataProgramacao ? atividade.dataProgramacao = null : atividade.dataProgramacao;
+    !atividade.dataConclusao ? atividade.dataConclusao = null : atividade.dataConclusao;
     this.atividadeService.editAtividade(this.idAtividade, atividade).subscribe(
       dados => { 
         console.log(dados);
