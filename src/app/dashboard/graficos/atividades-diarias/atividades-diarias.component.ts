@@ -30,6 +30,11 @@ export class AtividadesDiariasComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.carregaAtividadesCronoAtual();
+  }
+  
+  carregaAtividadesCronoAtual(){
+    
     this.cronogramaService.getAll().subscribe(res => {
       let ultimoCrono = res.pop().idCronograma;
       this.atividadeService.getAtividadesConcluidas(ultimoCrono).subscribe((concluidas: Atividade[]) => {
