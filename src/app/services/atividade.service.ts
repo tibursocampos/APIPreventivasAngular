@@ -21,8 +21,16 @@ import { environment } from "src/environments/environment";
             return this.http.get<Atividade>(`${this.baseUrl}/${idAtividade}`);
         }
         
-        getAtividadesConcluidas(idCronograma: number): Observable<Atividade>{
-            return this.http.get<Atividade>(`${this.baseUrl}/concluidas/cronograma?idCronograma=${idCronograma}`);
+        getAtividadesCronograma(idCronograma: number): Observable<Atividade[]>{
+            return this.http.get<Atividade[]>(`${this.baseUrl}/todas/cronograma?idCronograma=${idCronograma}`);
+        }
+        
+        getAtividadesConcluidas(idCronograma: number): Observable<Atividade[]>{
+            return this.http.get<Atividade[]>(`${this.baseUrl}/concluidas/cronograma?idCronograma=${idCronograma}`);
+        }
+        
+        getAtividadesProgramadas(idCronograma: number): Observable<Atividade[]>{
+            return this.http.get<Atividade[]>(`${this.baseUrl}/programadas/cronograma?idCronograma=${idCronograma}`);
         }
         
         editAtividade(idAtividade: number, atividade: Atividade): Observable<Atividade>{

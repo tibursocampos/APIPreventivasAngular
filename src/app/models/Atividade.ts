@@ -4,6 +4,6 @@ export class Atividade{
     idAlvo: number;
     idTecnico: number;
     tipoAtividade: TipoAtividadeEnum;
-    dataProgramacao: Date;
-    dataConclusao: Date;
+    dataProgramacao: string;
+    dataConclusao: string;
 }

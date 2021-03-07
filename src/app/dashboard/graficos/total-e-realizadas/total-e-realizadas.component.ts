@@ -22,6 +22,10 @@ export class TotalERealizadasComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.carregaChartUltimoCronograma();
+  }
+  
+  carregaChartUltimoCronograma(){
     this.cronogramaService.getAll().subscribe(
       (res => {        
         let ultimoCrono = res.pop().idCronograma;        
@@ -36,7 +40,7 @@ export class TotalERealizadasComponent implements OnInit {
                 this.chart = new Chart (this.context, {                  
                   type: 'doughnut',
                   data: {
-                    labels: ['Alvos Concluidos', 'Alvos Restantes'],
+                    labels: [`Alvos Concluidos ${prontos.length}`, `Alvos Restantes ${faltantes.length}`],
                     datasets: [
                       {
                         data: [prontos.length, faltantes.length],
