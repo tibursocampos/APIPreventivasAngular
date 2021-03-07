@@ -8,6 +8,8 @@ import { Atividade } from './../../models/Atividade';
 import { Component, OnInit } from '@angular/core';
 import { Alvo } from 'src/app/models/Alvo';
 import { AtividadeService } from 'src/app/services/atividade.service';
+import { format, parseISO } from 'date-fns';
+import  ptBR  from 'date-fns/locale/pt-BR'
 
 @Component({
   selector: 'app-editar-atividade',
@@ -43,7 +45,8 @@ export class EditarAtividadeComponent implements OnInit {
     this.carregarTipoAtividade();
     this.route.params.subscribe((params: Params) => this.idAtividade = params['idAtividade']);
     this.atividadeService.getAtividade(this.idAtividade).subscribe(
-      x => this.editarForm(x)
+      x => { console.log(x),this.editarForm(x)
+      }
     );
   }
   
@@ -64,14 +67,16 @@ export class EditarAtividadeComponent implements OnInit {
       idAlvo: atividade.idAlvo,
       idTecnico: atividade.idTecnico,
       tipoAtividade: atividade.tipoAtividade,
-      dataProgramacao: atividade.dataProgramacao,
-      dataConclusao: atividade.dataConclusao
+      dataProgramacao: atividade.dataProgramacao ? format(parseISO(atividade.dataProgramacao), 'yyyy-MM-dd',{locale: ptBR}) : null,
+      dataConclusao: atividade.dataConclusao ? format(parseISO(atividade.dataConclusao), 'yyyy-MM-dd',{locale: ptBR}) : null
     });
   }
   
   salvar(){
     const atividade: Atividade =  this.atividadeEditForm.value;
-    atividade.idTecnico = Number(atividade.idTecnico);
+    atividade.idTecnico = atividade.idTecnico ? Number(atividade.idTecnico) : null;
+    !atividade.dataProgramacao ? atividade.dataProgramacao = null : atividade.dataProgramacao;
+    !atividade.dataConclusao ? atividade.dataConclusao = null : atividade.dataConclusao;
     this.atividadeService.editAtividade(this.idAtividade, atividade).subscribe(
       dados => { 
         console.log(dados);

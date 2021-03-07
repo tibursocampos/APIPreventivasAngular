@@ -16,6 +16,10 @@ import { Cronograma } from './../models/Cronograma';
         
         getAll(): Observable<Cronograma[]>{
             return this.http.get<Cronograma[]>(`${this.baseUrl}`);
+        }   
+        
+        getAllPromise(){
+            return this.http.get<Cronograma[]>(`${this.baseUrl}`).toPromise();
         }
         
         getCronograma(idCronograma: number): Observable<Cronograma>{
