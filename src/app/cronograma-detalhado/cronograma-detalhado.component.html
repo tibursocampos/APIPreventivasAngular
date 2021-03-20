@@ -16,7 +16,7 @@
           </thead>
           <tbody class="text-center">      
             <tr *ngFor="let detalhe of cronogramaDetalhado">
-              <th>{{ detalhe.endId }}</th>
+              <td>{{ detalhe.endId }}</td>
               <td>{{ detalhe.siteGsm }}</td>
               <td>{{ detalhe.site3g }}</td>
               <td>{{ detalhe.tipoAtividade | atividades: detalhe.tipoAtividade}}</td>

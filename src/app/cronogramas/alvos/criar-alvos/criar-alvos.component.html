@@ -27,7 +27,7 @@
                       <td>{{ site.endId }}</td>
                       <td>{{ site.siteGsm }}</td> 
                       <td>{{ site.site3g }}</td>  
-                      <td>{{ site.cidade }}</td> 
+                      <td>{{ site.cidade  | uppercase }}</td> 
                       <td>
                         <div class="btn-group" role="group" aria-label="Basic example">
                           <button (click)="adicionaAlvo(site.idSite)" [ngValue]="site.idSite" type="button" class="btn btn-outline-secondary">Adicionar Alvo</button>                         

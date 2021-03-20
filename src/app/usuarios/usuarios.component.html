@@ -25,20 +25,20 @@
           </thead>
                 <tbody class="text-center">       
                     <tr *ngFor="let usuario of usuarios">
-                    <th>{{ usuario.primeiroNome }}</th>
-                    <td>{{ usuario.ultimoNome }}</td>
-                    <td>{{ usuario.cpf }}</td>
-                    <td>{{ usuario.email }}</td> 
-                    <td>{{ usuario.anf | anfMg: usuario.anf}}</td> 
-                    <td>{{ usuario.area | areaTecnico: usuario.area}}</td>
-                    <td>{{ usuario.permissao | permissao: usuario.permissao}}</td>
-                    <td>
-                        <div class="btn-group" role="group" aria-label="Basic example">                        
-                        <button (click)="editarUsuario(usuario.idUsuario)" type="button" class="btn btn-outline-secondary">Editar</button>
-                        <button (click)="apagarUsuario(usuario.idUsuario)" type="button" class="btn btn-outline-danger">Excluir</button>
-                      </div>
-                    </td>
-                </tr>
+                      <td>{{ usuario.primeiroNome }}</td>
+                      <td>{{ usuario.ultimoNome }}</td>
+                      <td>{{ usuario.cpf }}</td>
+                      <td>{{ usuario.email }}</td> 
+                      <td>{{ usuario.anf | anfMg: usuario.anf}}</td> 
+                      <td>{{ usuario.area | areaTecnico: usuario.area}}</td>
+                      <td>{{ usuario.permissao | permissao: usuario.permissao}}</td>
+                      <td>
+                          <div class="btn-group" role="group" aria-label="Basic example">                        
+                          <button (click)="editarUsuario(usuario.idUsuario)" type="button" class="btn btn-outline-secondary">Editar</button>
+                          <button (click)="apagarUsuario(usuario.idUsuario)" type="button" class="btn btn-outline-danger">Excluir</button>
+                        </div>
+                      </td>
+                    </tr>
                 </tbody>
         </table>
       </div>
